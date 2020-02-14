@@ -78,7 +78,7 @@ INSERT INTO MN_TenutoDa(CodiceRelatore, CodiceProgramma) VALUES
 INSERT INTO MN_Partecipano(MatricolaPersona, CodiceProgramma) VALUES
 	('par1','Programma1', 0),
 	('par2','Programma2', 0),
-	('par3','Programma3', 0),
+	('par3','Programma1', 1),
 	('par7','Programma4', 0),
 	('par5','Programma5', 0),
 	('par6','Programma6', 0),
