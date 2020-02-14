@@ -26,5 +26,13 @@ SELECT Speech.CodiceSpeech, AVG(Persona.MatricolaPersona) AS MediaPartecipanti
     AND Programma.CodiceSpeech = Speech.CodiceSpeech
   GROUP BY Speech.CodiceSpeech;
 
--- Elenco dei partecipanti dello Programma3 già arrivati all'evento (flag arrivo nella tabella MN_Partecipano)
--- 
+-- Tutti i parametri della tabella persona (eventuale pagina php di modifica del profilo utente)
+SELECT Persona.Nome, Persona.Cognome, Persona.Mail, Persona.Cellulare, Persona.Password, Persona.Tipologia
+	FROM Persona
+
+
+-- Elenco dei partecipanti del Programma3 già arrivati all'evento (flag arrivo nella tabella MN_Partecipano)
+SELECT Persona.Nome
+	FROM Persona, Programma
+	WHERE Programma.CodiceProgramma = 'Programma3'
+	AND Programma.CodiceProgramma = MN_Partecipano.CodiceProgramma
