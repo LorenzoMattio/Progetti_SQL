@@ -87,7 +87,6 @@ CREATE TABLE IF NOT EXISTS `MN_Partecipano` (
 ALTER TABLE MN_Partecipano ADD FOREIGN KEY (MatricolaPersona) REFERENCES Persona('MatricolaPersona');
 ALTER TABLE MN_Partecipano ADD FOREIGN KEY (CodiceProgramma) REFERENCES Programma('CodiceProgramma');
 
--- Prova
 -- Creazione tabella MN_TenutoDa (collegamentro tra programma e relatore
 CREATE TABLE IF NOT EXISTS `MN_TenutoDa` (
 	`CodiceProgramma` VARCHAR(10) NOT NULL,
