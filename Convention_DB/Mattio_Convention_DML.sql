@@ -75,7 +75,7 @@ INSERT INTO MN_TenutoDa(CodiceRelatore, CodiceProgramma) VALUES
 	('Relatore7','Programma2');
 
 -- Tabella Sceglie
-INSERT INTO MN_Partecipano(MatricolaPersona, CodiceProgramma) VALUES
+INSERT INTO MN_Partecipano(MatricolaPersona, CodiceProgramma, FlagArrivo) VALUES
 	('par1','Programma1', 0),
 	('par2','Programma2', 0),
 	('par3','Programma1', 1),
