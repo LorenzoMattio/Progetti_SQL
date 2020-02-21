@@ -81,7 +81,7 @@ ALTER TABLE Programma ADD FOREIGN KEY (CodiceSala) REFERENCES Sala(CodiceSala);
 CREATE TABLE IF NOT EXISTS MN_Partecipano (
 	MatricolaPersona VARCHAR(10) NOT NULL,
 	CodiceProgramma VARCHAR(10) NOT NULL,
-	FlagArrivo INT NULL,
+	FlagArrivo INT NULL DEFAULT 0,
 	PRIMARY KEY (MatricolaPersona,CodiceProgramma)
 );
 ALTER TABLE MN_Partecipano ADD FOREIGN KEY (MatricolaPersona) REFERENCES Persona(MatricolaPersona);

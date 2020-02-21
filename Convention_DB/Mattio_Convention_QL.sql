@@ -20,20 +20,24 @@ SELECT Azienda.CodiceAzienda, COUNT(Relatore.CodiceRelatore) AS NumeroRelatori
 
 -- Media dei partecipanti per ogni speech
 SELECT AVG(nPartecipanti) AS MediaPartecipanti
-FROM (SELECT Speech.CodiceSpeech, COUNT(MN_Partecipano.MatricolaPersona) AS nPartecipanti
-FROM MN_Partecipano, Programma, Speech
-WHERE Speech.CodiceSpeech = Programma.CodiceSpeech
-AND Programma.CodiceProgramma = MN_Partecipano.CodiceProgramma
-GROUP BY Speech.CodiceSpeech) AS prova;
+FROM(
+	SELECT Speech.CodiceSpeech, COUNT(MN_Partecipano.MatricolaPersona) AS nPartecipanti
+	FROM MN_Partecipano, Programma, Speech
+	WHERE Speech.CodiceSpeech = Programma.CodiceSpeech
+	AND Programma.CodiceProgramma = MN_Partecipano.CodiceProgramma
+	GROUP BY Speech.CodiceSpeech
+	ORDER BY nPartecipanti DESC
+	) AS ConteggioPartecipantiSpeech;
 
 
 
--- Totale partecipanti di uno speech
+-- Conteggio dei partecipanti di ogni speech
 SELECT Speech.CodiceSpeech, COUNT(MN_Partecipano.MatricolaPersona) AS nPartecipanti
 FROM MN_Partecipano, Programma, Speech
 WHERE Speech.CodiceSpeech = Programma.CodiceSpeech
 AND Programma.CodiceProgramma = MN_Partecipano.CodiceProgramma
-GROUP BY Speech.CodiceSpeech;
+GROUP BY Speech.CodiceSpeech
+ORDER BY nPartecipanti DESC;
 
 
 
@@ -42,8 +46,27 @@ SELECT Persona.Nome, Persona.Cognome, Persona.Mail, Persona.Cellulare, Persona.P
 	FROM Persona
 
 
--- Elenco dei partecipanti del Programma3 già arrivati all'evento (flag arrivo nella tabella MN_Partecipano)
-SELECT Persona.Nome
-	FROM Persona, Programma
-	WHERE Programma.CodiceProgramma = 'Programma3'
-	AND Programma.CodiceProgramma = MN_Partecipano.CodiceProgramma
+-- Elenco dei partecipanti (nome e cognome)dello 'Speech1' nella facia oraria 'A' nella 'Sala1' (flag arrivo nella tabella MN_Partecipano)
+SELECT Persona.Nome, Persona.Cognome
+	FROM Programma, MN_Partecipano, Persona
+	WHERE Programma.CodiceProgramma = MN_Partecipano.CodiceProgramma
+	AND Persona.MatricolaPersona = MN_Partecipano.MatricolaPersona
+	AND Programma.CodiceSpeech = 'Speech1'
+	AND Programma.CodiceSala = 'Sala1'
+	AND Programma.FasciaOraria = 'A'
+	AND MN_Partecipano.FlagArrivo = 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
