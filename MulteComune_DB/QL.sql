@@ -1,10 +1,11 @@
 ---------- Interrogazioni DB ----------
 -- 1
-SELECT Automobilista.Nome, Automobilista.Cognome
+SELECT Automobilista.Nome, Automobilista.Cognome, Automobilista.Città
   FROM Automobilista, Infrazione, Tipo
   WHERE Infrazione.CodAutomobilista = Automobilista.CodAutomobilista
   AND Infrazione.CodTipo = Tipo.CodTipo
   AND Tipo.Descrizione = 'Divieto di sosta'
+  ORDER BY Automobilista.Città
 
 -- 2
 SELECT Veicolo.Marca, Veicolo.Modello

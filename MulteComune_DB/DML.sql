@@ -2,15 +2,15 @@
 USE 5c_MulteComune;
 
 -- Tabella Automobilista
-INSERT INTO Automobilista(CodAutomobilista,Nome, Cognome, CodiceFiscale) VALUES
-	('par1','Marco','Va Lentino','3120418986'),
-	('par2','Matteo','Bianchi','3120418986'),
-	('par3','Luca','Verdi','3120418986'),
-	('par4','Mattia','Gialli','3120418986'),
-	('par5','Francesco','Viola','3120418986'),
-	('par6','Nicola','Verde','3120418986'),
-	('par7','Stefano','Rossi','3120418986'),
-	('par8','Andrea','Rossi','3120418986');
+INSERT INTO Automobilista(CodAutomobilista,Nome, Cognome, CodiceFiscale, Città) VALUES
+	('par1','Marco','Va Lentino','3120418986', 'Saluzzo'),
+	('par2','Matteo','Bianchi','3120418986', 'Saluzzo'),
+	('par3','Luca','Verdi','3120418986', 'Saluzzo'),
+	('par4','Mattia','Gialli','3120418986', 'Saluzzo'),
+	('par5','Francesco','Viola','3120418986', 'Saluzzo'),
+	('par6','Nicola','Verde','3120418986', 'Verzuolo'),
+	('par7','Stefano','Rossi','3120418986', 'Verzuolo'),
+	('par8','Andrea','Rossi','3120418986', 'Verzuolo');
 
 -- Tabella Agente
 INSERT INTO Agente(CodAgente, Nome, Cognome) VALUES

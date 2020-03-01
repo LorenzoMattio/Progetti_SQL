@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS Automobilista (
 	Nome VARCHAR(10) NULL,
 	Cognome VARCHAR(10) NULL,
 	CodiceFiscale VARCHAR(10) NULL,
+	Città VARCHAR(10) NULL,
 	PRIMARY KEY (CodAutomobilista)
 );
 
