@@ -25,6 +25,6 @@ if ($connessione->connect_error) {
         <title>Benvenuto</title>
     </head>
     <body>
-        <div align=”center”>Hello World!</div>
+        Hello World!
     </body>
 </html>
