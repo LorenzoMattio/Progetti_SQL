@@ -1,6 +1,5 @@
 
-CREATE DATABASE 5c_Convention;
-USE 5c_Convention;
+USE Convention;
 
 -- Creazione tabella Azienda
 CREATE TABLE IF NOT EXISTS Azienda (

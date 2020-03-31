@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include 'connessione_DB.php';?>
 <html lang="en">
 
 <head>
@@ -27,12 +28,6 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Eterna - v2.0.0
-  * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -41,15 +36,12 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container d-flex">
       <div class="contact-info mr-auto">
-        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">contact@example.com</a>
-        <i class="icofont-phone"></i> +1 5589 55488 55
+        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">info@mattioconvention.com</a>
+        <i class="icofont-phone"></i> +39 0175 112233
       </div>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
         <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="skype"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
       </div>
     </div>
   </section>
@@ -60,8 +52,6 @@
 
       <div class="logo mr-auto">
         <h1 class="text-light"><a href="index.html"><span>Eterna</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
@@ -110,9 +100,9 @@
           <div class="carousel-item active" style="background: url(assets/img/slide/slide-1.jpg)">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animated fadeInDown">Welcome to <span>Eterna</span></h2>
+                <h2 class="animated fadeInDown">Welcome to <span>MattioConvention</span></h2>
                 <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="" class="btn-get-started animated fadeInUp">Read More</a>
+                <!-- Button leggi di più <a href="" class="btn-get-started animated fadeInUp">Read More</a> -->
               </div>
             </div>
           </div>
@@ -123,7 +113,7 @@
               <div class="carousel-content">
                 <h2 class="animated fadeInDown">Lorem <span>Ipsum Dolor</span></h2>
                 <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="" class="btn-get-started animated fadeInUp">Read More</a>
+                <!-- <a href="" class="btn-get-started animated fadeInUp">Read More</a> -->
               </div>
             </div>
           </div>
@@ -134,7 +124,7 @@
               <div class="carousel-content">
                 <h2 class="animated fadeInDown">Sequi ea <span>Dime Lara</span></h2>
                 <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="" class="btn-get-started animated fadeInUp">Read More</a>
+                <!-- <a href="" class="btn-get-started animated fadeInUp">Read More</a> -->
               </div>
             </div>
           </div>

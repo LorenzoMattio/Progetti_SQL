@@ -1,5 +1,5 @@
 
-USE 5c_Convention;
+USE Convention;
 
 -- Tabella Piano
 INSERT INTO Piano(CodicePiano,TotaleSale, NumeroPiano) VALUES
