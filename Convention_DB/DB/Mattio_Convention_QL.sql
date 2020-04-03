@@ -56,17 +56,6 @@ SELECT Persona.Nome, Persona.Cognome
 	AND Programma.FasciaOraria = 'A'
 	AND MN_Partecipano.FlagArrivo = 1;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
+-- Elenco delle sale
+SELECT Sala.Nome, Sala.Capacità
+  FROM Sala;

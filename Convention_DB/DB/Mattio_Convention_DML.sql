@@ -8,13 +8,13 @@ INSERT INTO Piano(CodicePiano,TotaleSale, NumeroPiano) VALUES
 	('Piano3', 6, 3);
 
 -- Tabella Sala
-INSERT INTO Sala(CodiceSala, Capacità, CodicePiano) VALUES
-	('Sala1','50','Piano1'),
-	('Sala2','100','Piano2'),
-	('Sala3','50','Piano3'),
-	('Sala4','60','Piano2'),
-	('Sala5','40','Piano1'),
-	('Sala6','150','Piano3');
+INSERT INTO Sala(CodiceSala, Nome, Capacità, CodicePiano) VALUES
+	('Sala1','Venere','50','Piano1'),
+	('Sala2','Saturno','100','Piano2'),
+	('Sala3','Nettuno','50','Piano3'),
+	('Sala4','Terra','110','Piano2'),
+	('Sala5','Mercurio','40','Piano1'),
+	('Sala6','Giove','500','Piano3');
 
 -- Tabella Azienda
 INSERT INTO Azienda(CodiceAzienda, eMail, Indirizzo, Telefono) VALUES
@@ -39,11 +39,11 @@ INSERT INTO Persona(MatricolaPersona, Nome, Cognome, Cellulare, Mail, Tipologia,
 
 -- Tabella Speech
 INSERT INTO Speech(CodiceSpeech, Titolo, Descrizione, Durata) VALUES
-	('Speech1','Titolo1','Argomento1', 1234),
-	('Speech2','Titolo2','Argomento2', 4321),
-	('Speech3','Titolo3','Argomento3', 23234),
-	('Speech4','Titolo4','Argomento4', 23432),
-	('Speech5','Titolo5','Argomento5', 29873);
+	('Speech1','Perché il COVID-19 ci sta colpendo, e come prepararsi alla prossima ondata','Dove si è originato il corona virus, in che modo si è diffuso così rapidamente e cosa ci dobbiamo aspettare? Condividendo la propria opinione sull epidemia, l esperta di salute mondiale e TED Fellow Alanna Shaikh ripercorre la diffusione del COVID-19, ci spiega perché le restrizioni sui viaggi sono inutili e sottolinea quali cambiamenti in campo medico sono necessari in tutto il mondo per affrontare la prossima pandemia. "Dobbiamo far sì che ogni paese nel mondo abbia i mezzi per identificare nuove malattie e curarle", spiega.', 1234),
+	('Speech2','I dittatori odiano le vignette politiche, così io continuo a disegnarle','"Una vignetta politica è il barometro della libertà", afferma Rayma Suprani, che è stata esiliata dal suo Paese nativo, il Venezuela, per aver pubblicato materiale che critica il governo. "Ecco perché i dittatori odiano i vignettisti". In un intervento corredato dai momenti salienti della sua carriera trascorsa a inveire contro il totalitarismo, la Suprani esplora come le vignette fungano da specchio della società e rivelino verità nascoste -- e spiega perché continui a disegnare a un caro prezzo personale.', 4321),
+	('Speech3','Cosa svelano i microbi in rapporto al cambiamento climatico','Se mutano gli oceani, cambia il pianeta, e tutto inizia dai microbi, dice la biologa oceanografa Angelicque White. Col supporto di dati raccolti in decine di anni, White spiega come gli scienziati usino questi antichi microorganismi come un essenziale barometro della salute degli oceani e come potremmo ringiovanirli mentre le temperature marine aumentano inesorabilmente.', 23234),
+	('Speech4','Il passato, presente e futuro della dipendenza da nicotina','L uso del tabacco resta la principale causa di malattie e morti prevenibili negli Stati Uniti e che uccide molte più persone ogni anno di alcol, Aids, incidenti stradali, droghe, omicidi e suicidi tutti insieme. Seguite l esperto di politica sanitaria, Mitch Zeller, nelle oscure profondità dell industria del tabacco, che rivelerà la sordida storia di dipendenza da nicotina e vi inviterà a immaginare un mondo dove un cambio di politica possa aiutare le persone a non diventare dipendenti.', 23432),
+	('Speech5','Perchè laghi e fiumi dovrebbero avere gli stessi diritti delle persone','Lacqua è essenziale per la vita. Tuttavia agli occhi della legge, rimane ampiamente indifesa -- lasciando molte comunità senza accesso all acqua potabile, dice la studiosa di legge Kelsey Leonard. In questo forte intervento, dimostra perché garantire la personalità giuridica a fiumi e laghi -- dando loro gli stessi diritti degli uomini -- è il primo passo per proteggere i nostri sistemi idrici e trasformare drasticamente il modo di vedere questa risorsa vitale.', 29873);
 
 -- Tabella Programma
 INSERT INTO Programma(CodiceProgramma, FasciaOraria, CodiceSala, CodiceSpeech) VALUES

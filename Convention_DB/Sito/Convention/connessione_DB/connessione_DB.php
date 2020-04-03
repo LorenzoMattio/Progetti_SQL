@@ -20,5 +20,4 @@ if ($connessione->connect_error) {
 }
 
 $connessione->query("SET NAMES 'utf8'");
-
 ?>

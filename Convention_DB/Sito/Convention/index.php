@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-<?php include 'connessione_DB.php';?>
+<?php
+  include 'connessione_DB/connessione_DB.php';
+  include 'classi_php/Speech.php';
+  include 'classi_php/Sale.php';
+?>
+<?php
+$query = "SELECT Speech.CodiceSpeech, Speech.Titolo, Speech.Descrizione, COUNT(MN_Partecipano.MatricolaPersona) AS nPartecipanti FROM MN_Partecipano, Programma, Speech WHERE Speech.CodiceSpeech = Programma.CodiceSpeech AND Programma.CodiceProgramma = MN_Partecipano.CodiceProgramma GROUP BY Speech.CodiceSpeech ORDER BY nPartecipanti DESC";
+$risultato = $connessione->query($query);
+$listaSpeech = array();
+
+while ($row = $risultato->fetch_assoc()) {
+  $tmpT = $row["Titolo"];
+  $tmpD = $row["Descrizione"];
+  $oggetto = new Speech($tmpT, $tmpD);
+  array_push($listaSpeech, $oggetto);
+}
+
+$query = "SELECT Sala.Nome, Sala.Capacità FROM Sala;";
+$risultato = $connessione->query($query);
+$listaSale = array();
+
+while ($row = $risultato->fetch_assoc()) {
+  $tmpN = $row["Nome"];
+  $tmpC = $row["Capacità"];
+  $oggetto = new Sale($tmpN, $tmpC);
+  array_push($listaSale, $oggetto);
+}
+
+
+?>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Eterna Bootstrap Template - Index</title>
+  <title>Mattio Convention - HOME</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -36,7 +65,7 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container d-flex">
       <div class="contact-info mr-auto">
-        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">info@mattioconvention.com</a>
+        <i class="icofont-envelope"></i><a href="mailto:info@mattioconvention.com">info@mattioconvention.com</a>
         <i class="icofont-phone"></i> +39 0175 112233
       </div>
       <div class="social-links">
@@ -51,7 +80,7 @@
     <div class="container d-flex">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="index.html"><span>Eterna</span></a></h1>
+        <h1 class="text-light"><a href="index.html"><span>Mattio</span></a></h1>
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
@@ -89,58 +118,16 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
-    <div class="hero-container">
       <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-
-        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-        <div class="carousel-inner" role="listbox">
-
-          <!-- Slide 1 -->
-          <div class="carousel-item active" style="background: url(assets/img/slide/slide-1.jpg)">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2 class="animated fadeInDown">Welcome to <span>MattioConvention</span></h2>
-                <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <!-- Button leggi di più <a href="" class="btn-get-started animated fadeInUp">Read More</a> -->
-              </div>
+        <div class="carousel-item active" style="background: url(assets/img/slide/slide-1.jpg)">
+          <div class="carousel-container">
+            <div class="carousel-content">
+              <h2 class="animated fadeInDown">Welcome to <span>MattioConvention</span></h2>
+              <p class="animated fadeInUp">Il centro congressi di MattioConvention è situato a 2 km dal nuovo polo fieristico di Rho-Pero, lungo l'asse che da Milano porta all'aeroporto internazionale di Malpensa ed alle principali direttrici europee. Posto all'interno di un suggestivo complesso settecentesco ristrutturato di recente, è circondato da un grande e meraviglioso parco e da un grazioso giardino all'italiana, spazi che tutelano e favoriscono il silenzio.</p>
+              <!-- Button leggi di più <a href="" class="btn-get-started animated fadeInUp">Read More</a> -->
             </div>
           </div>
-
-          <!-- Slide 2 -->
-          <div class="carousel-item" style="background: url(assets/img/slide/slide-2.jpg)">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2 class="animated fadeInDown">Lorem <span>Ipsum Dolor</span></h2>
-                <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <!-- <a href="" class="btn-get-started animated fadeInUp">Read More</a> -->
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="carousel-item" style="background: url(assets/img/slide/slide-3.jpg)">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2 class="animated fadeInDown">Sequi ea <span>Dime Lara</span></h2>
-                <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <!-- <a href="" class="btn-get-started animated fadeInUp">Read More</a> -->
-              </div>
-            </div>
-          </div>
-
         </div>
-
-        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-
-        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-
       </div>
     </div>
   </section><!-- End Hero -->
@@ -150,32 +137,48 @@
     <!-- ======= Featured Section ======= -->
     <section id="featured" class="featured">
       <div class="container">
+        <?php
+        $indice = -1;
+        for($i = 0; $i < count($listaSpeech)/3; $i++){
+          ?>
+          <div class="row">
+          <?php
+          for($a = 0; $a < 3; $a++){
+            $indice = $indice + 1;
+            if ($indice != count($listaSpeech)){
+              if ($a == 0){
+                ?><div class="col-lg-4"><?php
+              }else {
+                ?><div class="col-lg-4 mt-4 mt-lg-0"><?php
+              }
+              ?>
+              <div class="icon-box">
+              <h3><a href=""><?php echo $listaSpeech[$indice]->getTitolo(); ?></a></h3>
+              <?php
+                $prova = array();
+                $prova =  wordwrap($listaSpeech[$indice]->getDescrizione(), 155);
+                $rest = substr("abcdef", -3, 1); // returns "d"
+              ?>
+              <p>
+                <?php
+                  if (strlen($listaSpeech[$indice]->getDescrizione()) > 100){
+                    for( $f = 0; $f < 100; $f++){
+                      echo $listaSpeech[$indice]->getDescrizione()[$f];
+                    }
+                  }else {
+                    echo $listaSpeech[$indice]->getDescrizione();
+                  }
+                ?>...
+              </p>
+              </div>
+              </div>
 
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="icon-box">
-              <i class="icofont-computer"></i>
-              <h3><a href="">Lorem Ipsum</a></h3>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-          </div>
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <i class="icofont-image"></i>
-              <h3><a href="">Dolor Sitema</a></h3>
-              <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </div>
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <i class="icofont-tasks-alt"></i>
-              <h3><a href="">Sed ut perspiciatis</a></h3>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
+              <?php
+            }
+          }
+          ?></div><br><?php
+        }
+         ?>
     </section><!-- End Featured Section -->
 
     <!-- ======= About Section ======= -->
@@ -209,65 +212,41 @@
     </section><!-- End About Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <section  class="services">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Our Services</h2>
+          <h2>Le nostre sale convegni:</h2>
         </div>
 
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
-          </div>
+        <?php
+        $indice = -1;
+        for($i = 0; $i < count($listaSale)/3; $i++){
+          ?>
+          <div class="row">
+          <?php
+          for($a = 0; $a < 3; $a++){
+            $indice = $indice + 1;
+            if ($indice != count($listaSale)){
+              ?>
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                <div class="icon-box">
+                  <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
+                  <h4><a href=""><?php echo $listaSale[$indice]->getNome(); ?></a></h4>
+                  <p >Capacita massima della sala:<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<br>
+                  <font size="6"><?php echo $listaSale[$indice]->getCapacita(); ?></font><br></p>
+                </div>
+              </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div>
+              <?php
+            }
+          }
+          ?></div><br><?php
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-world"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div>
+        }
+         ?>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-slideshow"></i></div>
-              <h4><a href="">Dele cardo</a></h4>
-              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-arch"></i></div>
-              <h4><a href="">Divera don</a></h4>
-              <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
     </section><!-- End Services Section -->
 
     <!-- ======= Clients Section ======= -->

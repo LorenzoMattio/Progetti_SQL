@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS Piano (
 -- Creazione tabella Sala
 CREATE TABLE IF NOT EXISTS Sala (
 	CodiceSala VARCHAR(10) NOT NULL,
+	Nome VARCHAR(20) NULL,
 	Capacità INT NULL,
 	CodicePiano VARCHAR(10) NULL,
 	PRIMARY KEY (CodiceSala)
@@ -57,8 +58,8 @@ ALTER TABLE Relatore ADD FOREIGN KEY (CodiceAzienda) REFERENCES Azienda(CodiceAz
 -- Creazione tabella Speech
 CREATE TABLE IF NOT EXISTS Speech (
 	CodiceSpeech VARCHAR(10) NOT NULL,
-	Titolo VARCHAR(30) NULL,
-	Descrizione VARCHAR(30) NULL,
+	Titolo VARCHAR(200) NULL,
+	Descrizione VARCHAR(2000) NULL,
 	Durata INT NULL,
 	PRIMARY KEY (CodiceSpeech)
 );
