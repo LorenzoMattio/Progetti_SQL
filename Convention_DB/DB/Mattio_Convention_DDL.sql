@@ -10,6 +10,19 @@ CREATE TABLE IF NOT EXISTS Azienda (
 	PRIMARY KEY (CodiceAzienda)
 );
 
+
+
+SELECT Gare.genere, Atleti.nome, Atleti.cognome
+	FROM Gare, Atleti, GareAtleti, Specialita
+	WHERE Atleti.id_atleta=GareAtleti.id_atleta
+	AND Gare.id_gara=GareAtleti.id_gara
+	AND Atleti.nazione = USA AND Gare.id_specialita = nuoto 
+	AND GareAtleti.posizione = 1
+	AND GareAtleti.anno = 2012
+	AND Specialita.id_specialitÃ =Gare.id_specialita
+
+
+
 -- Creazione tabella Piano
 CREATE TABLE IF NOT EXISTS Piano (
 	CodicePiano VARCHAR(10) NOT NULL,
